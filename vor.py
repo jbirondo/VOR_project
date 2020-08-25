@@ -185,4 +185,11 @@ df = df.rename({
     'VOR Rank': 'Value Rank'
 }, axis=1) # axis = 1 means make the change along the column axis.
 
-print(df[:5])
+# print(df[:5])
+
+adp_df = adp_df.rename({
+    'PLAYER': 'Player',
+    'POS': 'Pos',
+    'AVG': 'Average ADP',
+    'ADP RANK': 'ADP Rank'
+}, axis=1) # let's rename some columns first.
