@@ -145,5 +145,14 @@ df['VOR'] = df.apply(
 pd.set_option('display.max_rows', None) # turn off truncation of rows setting inherent to pandas
 
 df['VOR Rank'] = df['VOR'].rank(ascending=False)
-print(df.sort_values(by='VOR', ascending=False).head(100))
+# print(df.sort_values(by='VOR', ascending=False).head(100))
 
+
+# """
+# the pandas groupby method allows us to groupby a specific column, called "splitting",
+# then apply a summary function over to each group. We can split this up by column as well, by tacking
+# on ['ColumName'] after grouping and before applying the summary function.
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
+# """
+
+print(df.groupby('Pos')['VOR'].describe())
