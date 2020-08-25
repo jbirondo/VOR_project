@@ -7,7 +7,6 @@ import pandas as pd
 df = pd.read_csv('https://raw.githubusercontent.com/fantasydatapros/data/master/fantasypros/fp_projections.csv')
 adp_df = pd.read_csv('https://raw.githubusercontent.com/fantasydatapros/data/master/fantasypros/adp/PPR_ADP.csv', index_col=0) # set index col = 0 to set the range index as our dataframes index
 
-adp_df.head()
 #.iloc[] is primarily integer position based (from 0 to length-1 of the axis), but may also be used with a boolean array.
 #https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html
 df = df.iloc[:, 1:]
@@ -70,15 +69,15 @@ df['FantasyPoints'] = (
 
 # print(df[:5])
 
-"""
-The sort_values method of a DataFrame allows us sort our table by a given column.
-The 'by' parameter of the function here is a required argument, and it should be the name of 
-one of the columns in your table.
-The 'ascending' argument is optional. If you want to sort your table from largest to smallest, set
-ascending = False to sort in descending order. The object we get back from the sort_values function
-is also a pandas DataFrame, and so we can chain methods as we do below with sort_values and head.
-https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sort_values.html
-"""
+# """
+# The sort_values method of a DataFrame allows us sort our table by a given column.
+# The 'by' parameter of the function here is a required argument, and it should be the name of 
+# one of the columns in your table.
+# The 'ascending' argument is optional. If you want to sort your table from largest to smallest, set
+# ascending = False to sort in descending order. The object we get back from the sort_values function
+# is also a pandas DataFrame, and so we can chain methods as we do below with sort_values and head.
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sort_values.html
+# """
 
-# sort RBs by RushingYds in descending order and get us back the top 15 rows.
-rb_df.sort_values(by='RushingYds', ascending=False).head(15)
+# # sort RBs by RushingYds in descending order and get us back the top 15 rows.
+# rb_df.sort_values(by='RushingYds', ascending=False).head(15)
