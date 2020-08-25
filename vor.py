@@ -81,3 +81,5 @@ df['FantasyPoints'] = (
 
 # # sort RBs by RushingYds in descending order and get us back the top 15 rows.
 # rb_df.sort_values(by='RushingYds', ascending=False).head(15)
+
+print(adp_df[:10])
