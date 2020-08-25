@@ -122,7 +122,7 @@ for position, player_name in replacement_players.items():
     
     replacement_values[position] = player['FantasyPoints'].tolist()[0]
 
-print(replacement_values)
+# print(replacement_values)
 
 # """
 # the isin method lets us check if a value is in a list
@@ -206,5 +206,7 @@ adp_df = adp_df.rename({
 # """
 
 final_df = df.merge(adp_df, how='left', on=['Player', 'Pos'])
+final_df['Diff in ADP and Value'] = final_df['ADP Rank'] - final_df['Value Rank']
 
-print(final_df.head())
+
+print(final_df[:100])
