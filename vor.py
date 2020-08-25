@@ -119,3 +119,31 @@ for position, player_name in replacement_players.items():
     # we tack on a [0] to get the value we need.
     
     replacement_values[position] = player['FantasyPoints'].tolist()[0]
+
+print(replacement_values)
+
+# """
+# the isin method lets us check if a value is in a list
+# and can be passed as a boolean indexer / row filter / mask
+# here, we want to filter out all those rows who's position column is not in
+# ['QB', 'RB', 'WR', 'TE']
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.isin.html
+# """ 
+
+# this will be explained in the next chapter
+pd.set_option('chained_assignment', None)
+
+df = df.loc[df['Pos'].isin(['QB', 'RB', 'WR', 'TE'])]
+
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html
+df['VOR'] = df.apply(
+    lambda row: row['FantasyPoints'] - replacement_values.get(row['Pos']), axis=1
+)
+
+
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.set_option.html
+pd.set_option('display.max_rows', None) # turn off truncation of rows setting inherent to pandas
+
+df['VOR Rank'] = df['VOR'].rank(ascending=False)
+print(df.sort_values(by='VOR', ascending=False).head(100))
+
