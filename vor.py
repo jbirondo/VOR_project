@@ -6,4 +6,6 @@ import pandas as pd
 
 df = pd.read_csv('https://raw.githubusercontent.com/fantasydatapros/data/master/fantasypros/fp_projections.csv')
 
+df = df.iloc[:, 1:]
+
 print(df[:5])
