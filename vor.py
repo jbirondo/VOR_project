@@ -87,4 +87,20 @@ adp_df['ADP RANK'] = adp_df['AVG'].rank()
 
 adp_df_cutoff = adp_df[:100]
 
+replacement_players = {
+    'RB': '',
+    'QB': '',
+    'WR': '',
+    'TE': ''
+}
+
+for _, row in adp_df_cutoff.iterrows():
+    
+    position = row['POS'] # extract out the position and player value from each row as we loop through it
+    player = row['PLAYER']
+    
+    if position in replacement_players: # if the position is in the dict's keys
+        replacement_players[position] = player # set that player as the replacement player
+
 print(adp_df[:10])
+print(replacement_players)
