@@ -106,4 +106,16 @@ for _, row in adp_df_cutoff.iterrows():
 # print(replacement_players)
 
 df = df[['Player', 'Pos', 'Team', 'FantasyPoints']] # filtering out the columns we need.
-print(df.head())
+
+
+replacement_values = {} # initialize an empty dictionary
+
+for position, player_name in replacement_players.items():
+    
+    player = df.loc[df['Player'] == player_name]
+    
+    # because this is a series object we get back, we need to use the tolist method
+    # to get back the series as a list. The list object is of length 1, and the 1 item has the value we need.
+    # we tack on a [0] to get the value we need.
+    
+    replacement_values[position] = player['FantasyPoints'].tolist()[0]
