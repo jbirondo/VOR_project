@@ -193,3 +193,18 @@ adp_df = adp_df.rename({
     'AVG': 'Average ADP',
     'ADP RANK': 'ADP Rank'
 }, axis=1) # let's rename some columns first.
+
+
+# """
+# the merge function allows us to combine DataFrames together column wise on common columns.
+# Here, we are left joining. Which means any entries that exist in the right table (adp_df) but
+# do not exist in the left table (df) get dropped from the final table.
+# We want to join the two DataFrames together where the Player and Pos columns match up.
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html
+# Also, you may want to take a look at join, which is similar
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.join.html
+# """
+
+final_df = df.merge(adp_df, how='left', on=['Player', 'Pos'])
+
+print(final_df.head())
