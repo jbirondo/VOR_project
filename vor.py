@@ -10,4 +10,16 @@ df = pd.read_csv('https://raw.githubusercontent.com/fantasydatapros/data/master/
 #https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html
 df = df.iloc[:, 1:]
 
+scoring_weights = {
+    'receptions': 1, # PPR
+    'receiving_yds': 0.1,
+    'receiving_td': 6,
+    'FL': -2, #fumbles lost
+    'rushing_yds': 0.1,
+    'rushing_td': 6,
+    'passing_yds': 0.04,
+    'passing_td': 4,
+    'int': -2
+}
+
 print(' '.join((df.columns)))
