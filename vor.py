@@ -209,4 +209,12 @@ final_df = df.merge(adp_df, how='left', on=['Player', 'Pos'])
 final_df['Diff in ADP and Value'] = final_df['ADP Rank'] - final_df['Value Rank']
 
 
+draft_pool = final_df.sort_values(by='ADP Rank')[:196]
+
+rb_draft_pool = draft_pool.loc[draft_pool['Pos'] == 'RB']
+qb_draft_pool = draft_pool.loc[draft_pool['Pos'] == 'QB']
+wr_draft_pool = draft_pool.loc[draft_pool['Pos'] == 'WR']
+te_draft_pool = draft_pool.loc[draft_pool['Pos'] == 'TE']
+
+
 print(final_df[:100])
