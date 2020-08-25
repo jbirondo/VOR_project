@@ -49,7 +49,7 @@ df['FantasyPoints'] = (
 # """
 
 rb_df = df.loc[df['Pos'] == 'RB']
-# rb_df = rb_df['RushingAtt'] > 250
+rb_df = rb_df.loc[rb_df['RushingAtt'] > 250]
 
 print(rb_df.head())
 
