@@ -23,10 +23,15 @@ scoring_weights = {
 }
 
 df['FantasyPoints'] = (
-    df['Receptions']*scoring_weights['receptions'] + df['ReceivingYds']*scoring_weights['receiving_yds'] + \
-    df['ReceivingTD']*scoring_weights['receiving_td'] + df['FL']*scoring_weights['FL'] + \
-    df['RushingYds']*scoring_weights['rushing_yds'] + df['RushingTD']*scoring_weights['rushing_td'] + \
-    df['PassingYds']*scoring_weights['passing_yds'] + df['PassingTD']*scoring_weights['passing_td'] + \
-    df['Int']*scoring_weights['int'] )
+    df['Receptions']*scoring_weights['receptions'] + \
+    df['ReceivingYds']*scoring_weights['receiving_yds'] + \
+    df['ReceivingTD']*scoring_weights['receiving_td'] + \
+    df['FL']*scoring_weights['FL'] + \
+    df['RushingYds']*scoring_weights['rushing_yds'] + \
+    df['RushingTD']*scoring_weights['rushing_td'] + \
+    df['PassingYds']*scoring_weights['passing_yds'] + \
+    df['PassingTD']*scoring_weights['passing_td'] + \
+    df['Int']*scoring_weights['int'] 
+    )
 
 print(df[:5])
