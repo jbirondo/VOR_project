@@ -217,4 +217,4 @@ wr_draft_pool = draft_pool.loc[draft_pool['Pos'] == 'WR']
 te_draft_pool = draft_pool.loc[draft_pool['Pos'] == 'TE']
 
 
-print(final_df[:100])
+print(rb_draft_pool.sort_values(by='Diff in ADP and Value', ascending=False)[:10])
