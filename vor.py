@@ -6,4 +6,4 @@ import pandas as pd
 
 df = pd.read_csv('https://raw.githubusercontent.com/fantasydatapros/data/master/fantasypros/fp_projections.csv')
 
-print(df.head(10))
+print(df.head(5))
