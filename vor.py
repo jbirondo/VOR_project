@@ -48,9 +48,22 @@ df['FantasyPoints'] = (
 # https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html # docs on indexing
 # """
 
-rb_df = df.loc[df['Pos'] == 'RB']
-rb_df = rb_df.loc[rb_df['RushingAtt'] > 250]
+# rb_df = df.loc[df['Pos'] == 'RB']
+# rb_df = rb_df.loc[rb_df['RushingAtt'] > 250]
 
-print(rb_df.head())
+# print(rb_df.head())
+
+
+# base_columns = ['Player', 'Team', 'Pos']
+# rushing_columns = ['FantasyPoints', 'Receptions', 'ReceivingYds', 'ReceivingTD', 'RushingAtt', 'RushingYds', 'RushingTD', 'FL']
+
+# """
+# Here, we can mask (what we are doing in the row indexer) and filter (what we are doing in the column indexer)
+# all in one line. Pass in (the boolean indexer, columns you'd like to keep) as a tuple.
+# Also recall that lists can be concatenated together.
+# """
+# rb_df = df.loc[(df['Pos'] == 'RB', base_columns + rushing_columns)]
+
+# rb_df.head()
 
 # print(df[:5])
