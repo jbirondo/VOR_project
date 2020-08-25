@@ -4,6 +4,8 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 import pandas as pd
 
+import seaborn as sns # in case you did not import it above
+
 df = pd.read_csv('https://raw.githubusercontent.com/fantasydatapros/data/master/fantasypros/fp_projections.csv')
 adp_df = pd.read_csv('https://raw.githubusercontent.com/fantasydatapros/data/master/fantasypros/adp/PPR_ADP.csv', index_col=0) # set index col = 0 to set the range index as our dataframes index
 
@@ -163,4 +165,24 @@ df['VOR Rank'] = df['VOR'].rank(ascending=False)
 df['VOR'] = df['VOR'].apply(lambda x: (x - df['VOR'].min()) / (df['VOR'].max() - df['VOR'].min()))
 
 df = df.sort_values(by='VOR Rank')
-print(df[:100])
+# print(df[:100])
+
+# num_teams = 12
+# num_spots = 16 # 1 QB, 2RB, 2WR, 1TE, 1FLEX, 1K, 1DST, 7 BENCH
+# draft_pool = num_teams * num_spots
+
+# df_copy = df[:draft_pool]
+
+# print(sns.boxplot(x=df_copy['Pos'], y=df_copy['VOR']))
+
+# let's rename our VOR column to just Value.
+# remember, to make a change to our DataFrame, you set it equal to itself + some modifcation
+# we can use the rename method here to help us do that
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rename.html
+
+df = df.rename({
+    'VOR': 'Value',
+    'VOR Rank': 'Value Rank'
+}, axis=1) # axis = 1 means make the change along the column axis.
+
+print(df[:5])
