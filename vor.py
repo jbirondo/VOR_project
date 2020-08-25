@@ -84,4 +84,7 @@ df['FantasyPoints'] = (
 
 
 adp_df['ADP RANK'] = adp_df['AVG'].rank()
+
+adp_df_cutoff = adp_df[:100]
+
 print(adp_df[:10])
