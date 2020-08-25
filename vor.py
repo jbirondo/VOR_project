@@ -220,6 +220,9 @@ te_draft_pool = draft_pool.loc[draft_pool['Pos'] == 'TE']
 
 
 # top 10 RB sleepers for this year's draft
-rb_draft_pool.sort_values(by='Diff in ADP and Value', ascending=False)[:10]
+sleeper_rbs = rb_draft_pool.sort_values(by='Diff in ADP and Value', ascending=False)[:10]
 # top 10 RB overvalued for this year's draft
-rb_draft_pool.sort_values(by='Diff in ADP and Value', ascending=True)[:10]
+overvalued_rbs = rb_draft_pool.sort_values(by='Diff in ADP and Value', ascending=True)[:10]
+# top 10 WR sleepers for this year's draft
+sleeper_wr = wr_draft_pool.sort_values(by='Diff in ADP and Value', ascending=False)[:10]
+print(overvalued_rbs)
