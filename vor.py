@@ -155,4 +155,12 @@ df['VOR Rank'] = df['VOR'].rank(ascending=False)
 # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
 # """
 
-print(df.groupby('Pos')['VOR'].describe())
+# print(df.groupby('Pos')['VOR'].describe())
+
+# standard score example. Notice axis is not set to 1 as we are applying a function across a column here.
+# df['VOR'] = df['VOR'].apply(lambda x: (x - df['VOR'].mean()) / df['VOR'].std())
+
+df['VOR'] = df['VOR'].apply(lambda x: (x - df['VOR'].min()) / (df['VOR'].max() - df['VOR'].min()))
+
+df = df.sort_values(by='VOR Rank')
+print(df[:100])
