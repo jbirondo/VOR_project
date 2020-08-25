@@ -67,3 +67,16 @@ df['FantasyPoints'] = (
 # rb_df.head()
 
 # print(df[:5])
+
+"""
+The sort_values method of a DataFrame allows us sort our table by a given column.
+The 'by' parameter of the function here is a required argument, and it should be the name of 
+one of the columns in your table.
+The 'ascending' argument is optional. If you want to sort your table from largest to smallest, set
+ascending = False to sort in descending order. The object we get back from the sort_values function
+is also a pandas DataFrame, and so we can chain methods as we do below with sort_values and head.
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sort_values.html
+"""
+
+# sort RBs by RushingYds in descending order and get us back the top 15 rows.
+rb_df.sort_values(by='RushingYds', ascending=False).head(15)
