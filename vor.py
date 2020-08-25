@@ -4,7 +4,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 import pandas as pd
 
-import seaborn as sns # in case you did not import it above
+# import seaborn as sns # in case you did not import it above
 
 df = pd.read_csv('https://raw.githubusercontent.com/fantasydatapros/data/master/fantasypros/fp_projections.csv')
 adp_df = pd.read_csv('https://raw.githubusercontent.com/fantasydatapros/data/master/fantasypros/adp/PPR_ADP.csv', index_col=0) # set index col = 0 to set the range index as our dataframes index
