@@ -102,5 +102,8 @@ for _, row in adp_df_cutoff.iterrows():
     if position in replacement_players: # if the position is in the dict's keys
         replacement_players[position] = player # set that player as the replacement player
 
-print(adp_df[:10])
-print(replacement_players)
+# print(adp_df[:10])
+# print(replacement_players)
+
+df = df[['Player', 'Pos', 'Team', 'FantasyPoints']] # filtering out the columns we need.
+print(df.head())
