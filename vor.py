@@ -227,5 +227,8 @@ overvalued_rbs = rb_draft_pool.sort_values(by='Diff in ADP and Value', ascending
 sleeper_wrs = wr_draft_pool.sort_values(by='Diff in ADP and Value', ascending=False)[:10]
 # top 10 WR overvalued for this year's draft
 overvalued_wrs = wr_draft_pool.sort_values(by='Diff in ADP and Value', ascending=True)[:10]
+# top 10 WR overvalued for this year's draft
+sleeper_tes = wr_draft_pool.sort_values(by='Diff in ADP and Value', ascending=True)[:10]
+overvalued_tes = wr_draft_pool.sort_values(by='Diff in ADP and Value', ascending=False)[:10]
 
 print(overvalued_rbs)
