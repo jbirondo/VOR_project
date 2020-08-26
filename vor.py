@@ -219,16 +219,17 @@ te_draft_pool = draft_pool.loc[draft_pool['Pos'] == 'TE']
 
 
 
-# top 10 RB sleepers for this year's draft
+
 sleeper_rbs = rb_draft_pool.sort_values(by='Diff in ADP and Value', ascending=False)[:10]
-# top 10 RB overvalued for this year's draft
 overvalued_rbs = rb_draft_pool.sort_values(by='Diff in ADP and Value', ascending=True)[:10]
-# top 10 WR sleepers for this year's draft
+
 sleeper_wrs = wr_draft_pool.sort_values(by='Diff in ADP and Value', ascending=False)[:10]
-# top 10 WR overvalued for this year's draft
 overvalued_wrs = wr_draft_pool.sort_values(by='Diff in ADP and Value', ascending=True)[:10]
-# top 10 WR overvalued for this year's draft
-sleeper_tes = wr_draft_pool.sort_values(by='Diff in ADP and Value', ascending=True)[:10]
-overvalued_tes = wr_draft_pool.sort_values(by='Diff in ADP and Value', ascending=False)[:10]
+
+sleeper_tes = wr_draft_pool.sort_values(by='Diff in ADP and Value', ascending=False)[:10]
+overvalued_tes = wr_draft_pool.sort_values(by='Diff in ADP and Value', ascending=True)[:10]
+
+sleeper_qbs = qb_draft_pool.sort_values(by='Diff in ADP and Value', ascending=False)[:10]
+overvalued_qbs = qb_draft_pool.sort_values(by='Diff in ADP and Value', ascending=True)[:10]
 
 print(overvalued_rbs)
