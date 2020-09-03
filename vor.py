@@ -14,7 +14,7 @@ adp_df = pd.read_csv('https://raw.githubusercontent.com/fantasydatapros/data/mas
 df = df.iloc[:, 1:]
 
 scoring_weights = {
-    'receptions': 1, # PPR
+    'receptions': 0.5, # PPR
     'receiving_yds': 0.1,
     'receiving_td': 6,
     'FL': -2, #fumbles lost
@@ -216,10 +216,6 @@ qb_draft_pool = draft_pool.loc[draft_pool['Pos'] == 'QB']
 wr_draft_pool = draft_pool.loc[draft_pool['Pos'] == 'WR']
 te_draft_pool = draft_pool.loc[draft_pool['Pos'] == 'TE']
 
-
-
-
-
 sleeper_rbs = rb_draft_pool.sort_values(by='Diff in ADP and Value', ascending=False)[:10]
 overvalued_rbs = rb_draft_pool.sort_values(by='Diff in ADP and Value', ascending=True)[:10]
 
@@ -232,4 +228,16 @@ overvalued_tes = wr_draft_pool.sort_values(by='Diff in ADP and Value', ascending
 sleeper_qbs = qb_draft_pool.sort_values(by='Diff in ADP and Value', ascending=False)[:10]
 overvalued_qbs = qb_draft_pool.sort_values(by='Diff in ADP and Value', ascending=True)[:10]
 
-print(overvalued_rbs)
+# print(final_df[:300])
+
+html = final_df[:100].to_html()
+json = final_df[:-1].to_json(orient="index")
+
+
+# tf = open("index.html", "w")
+# tf.write(html)
+# tf.close()
+
+jf = open("halfppr.json", "w")
+jf.write(json)
+jf.close()
