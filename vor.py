@@ -231,7 +231,7 @@ overvalued_qbs = qb_draft_pool.sort_values(by='Diff in ADP and Value', ascending
 # print(final_df[:300])
 
 html = final_df[:100].to_html()
-json = final_df[:-1].to_json(orient="index")
+json = final_df[:].to_json(orient="records")
 
 
 # tf = open("index.html", "w")
